@@ -1,0 +1,29 @@
+@model WeddingPlanner.Models.LoginUser
+
+<style>
+    h1{
+        display: inline-block;
+    }
+
+    .aspacing{
+        margin-left: 50%;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-7">Login</h1> 
+    <form asp-action="ProcessLogin" asp-controller="Home" method="post">
+        <span asp-validation-for="LoginEmail"></span>
+        <div class="form-group form-inline">
+            <label asp-for="LoginEmail"></label>
+            <input asp-for="LoginEmail">
+        </div>
+        <span asp-validation-for="LoginPassword"></span>
+        <div class="form-group form-inline">
+            <label asp-for="LoginPassword"></label>
+            <input asp-for="LoginPassword">
+        </div>
+
+        <button type="submit">Log In Now</button>
+    </form>
+</div>

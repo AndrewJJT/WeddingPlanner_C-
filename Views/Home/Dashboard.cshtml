@@ -1,0 +1,39 @@
+@using WeddingPlanner.Models
+@model List<Wedding>
+
+<a asp-action="Logout" asp-controller="Home">Logout!</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guest</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model){
+            <tr>
+                <td scope="row"> <a href="wedding/@item.WeddingId">@item.WedderOne & @item.WedderTwo</a></td>
+                <td>@item.Date</td>
+                <td>@item.Guests.Count()</td>
+                @if (item.CreatedByUserId == ViewBag.UserId)
+                {  
+                <td><a href="delete/wedding/@item.WeddingId">Delete</a></td>
+                }
+                else{
+                    if (item.Guests.Any(a => a.UserId == ViewBag.UserId))
+                    {
+                       <td><a href="UnRSVP/@item.WeddingId">Un-RSVP</a></td> 
+                    }
+                    else{
+                        <td><a href="RSVP/@item.WeddingId">RSVP</a></td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="Create">New Wedding</a>
+

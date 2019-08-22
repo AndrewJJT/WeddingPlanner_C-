@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model WeddingPlanner.Models.User
+
+<style>
+    h1{
+        display: inline-block;
+    }
+
+    .aspacing{
+        margin-left: 50%;
+    }
+
+    .panel{
+        width: 49%;
+        height: auto;
+        vertical-align: top;
+        display: inline-block;
+    }
+</style>
+<div class="text-center display-4">Wedding Planner!</div>
+<div class="text-center panel">
+    <h1 class="display-7">Registration</h1> 
+    <form asp-action="Add" asp-controller="Home" method="post">
+        <span asp-validation-for="FirstName"></span>
+        <div class="form-group form-inline">
+          <label asp-for="FirstName"></label>
+          <input asp-for="FirstName">
+        </div>
+        <span asp-validation-for="LastName"></span>
+        <div class="form-group form-inline">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName">
+        </div>
+        <span asp-validation-for="Email"></span>
+        <div class="form-group form-inline">
+            <label asp-for="Email"></label>
+            <input asp-for="Email">
+        </div>
+        <span asp-validation-for="Password"></span>
+        <div class="form-group form-inline">
+            <label asp-for="Password"></label>
+            <input asp-for="Password">
+        </div>
+        <span asp-validation-for="Confirm"></span>
+        <div class="form-group form-inline">
+            <label asp-for="Confirm"></label>
+            <input asp-for="Confirm">
+        </div>
+        <button type="submit">Sign Up Now</button>
+    </form>
+</div>
+
+<div class="panel">
+<partial name="partialviewlogin"/>
+
+</div>

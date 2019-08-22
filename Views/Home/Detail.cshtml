@@ -1,0 +1,12 @@
+@model WeddingPlanner.Models.Wedding
+
+<a asp-action="Logout" asp-controller="Home">Logout!</a>
+<a asp-action="Dashboard" asp-controller="Home">DashBoard</a>
+
+<h4>@Model.WedderOne and @Model.WedderTwo</h4>
+
+<p>Guests</p>
+
+@foreach (var guest in Model.Guests){
+    <p>@guest.User.FirstName @guest.User.LastName</p>
+}
